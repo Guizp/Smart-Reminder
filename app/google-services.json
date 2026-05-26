@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "477439069544",
+    "project_id": "diario-inteligentee",
+    "storage_bucket": "diario-inteligentee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477439069544:android:d498e742e0558ee0159add",
+        "android_client_info": {
+          "package_name": "com.example.diario_inteligente"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0tRXFWhHuBRVYTYsaXzGvM8pmIoOwI7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
