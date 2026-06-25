@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Diario-Inteligente</string>
+    <string name="app_name">Smart Reminder 🌙</string>
+
+    <string name="loading_app">Loading project app...</string>
+
+    <string name="title_login">Login</string>
+    <string name="hint_email_login">Enter your e-mail</string>
+    <string name="hint_password_login">Enter your password</string>
+    <string name="btn_login">Enter App</string>
+    <string name="link_to_register">Don\'t have an account? Sign up here</string>
+
+    <string name="title_register">Create New Account</string>
+    <string name="hint_name_register">Full name</string>
+    <string name="hint_email_register">Valid e-mail</string>
+    <string name="hint_password_register">Password (min 6 digits)</string>
+    <string name="btn_register">Finish Registration</string>
 </resources>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Diário Inteligente</string>
+
+    <string name="loading_app">Carregando o app do projeto...</string>
+
+    <string name="title_login">Login</string>
+    <string name="hint_email_login">Digite seu e-mail</string>
+    <string name="hint_password_login">Digite sua senha</string>
+    <string name="btn_login">Entrar no App</string>
+    <string name="link_to_register">Não tem conta? Cadastre-se aqui</string>
+
+    <string name="title_register">Criar Nova Conta</string>
+    <string name="hint_name_register">Nome completo</string>
+    <string name="hint_email_register">E-mail válido</string>
+    <string name="hint_password_register">Senha (mínimo 6 dígitos)</string>
+    <string name="btn_register">Finalizar Cadastro</string>
+</resources>
