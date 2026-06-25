@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.diario_inteligente.converter.Base64Converter
 import com.example.diario_inteligente.model.Reminder
 import com.example.diario_inteligente.databinding.ActivityReminderDetailBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -44,19 +45,49 @@ class ReminderDetailActivity : AppCompatActivity() {
     }
 
     private fun carregarDadosDoLembrete() {
-        db.collection("reminders").document(lembreteId)
+
+        db.collection("reminders")
+            .document(lembreteId)
             .get()
             .addOnSuccessListener { documentSnapshot ->
-                val lembrete = documentSnapshot.toObject(Reminder::class.java)
+
+                val lembrete =
+                    documentSnapshot.toObject(Reminder::class.java)
+
                 if (lembrete != null) {
-                    binding.txtDetalheTitulo.text = lembrete.title
-                    binding.txtDetalheDescricao.text = lembrete.description
-                    binding.txtDetalheDataHora.text = "Criado em: ${lembrete.date} às ${lembrete.time}"
+
+                    binding.txtDetalheTitulo.text =
+                        lembrete.title
+
+                    binding.txtDetalheDescricao.text =
+                        lembrete.description
+
+                    binding.txtDetalheDataHora.text =
+                        "Criado em: ${lembrete.date} às ${lembrete.time}"
+
+                    if (lembrete.imageBase64.isNotEmpty()) {
+
+                        binding.imgDetalheFoto.setImageBitmap(
+                            Base64Converter.stringToBitmap(
+                                lembrete.imageBase64
+                            )
+                        )
+                    }
                 }
             }
             .addOnFailureListener { e ->
-                Log.e("STUDENT_LOG", "Erro ao buscar detalhes no banco", e)
-                Toast.makeText(this, "Erro ao carregar dados.", Toast.LENGTH_SHORT).show()
+
+                Log.e(
+                    "STUDENT_LOG",
+                    "Erro ao buscar detalhes no banco",
+                    e
+                )
+
+                Toast.makeText(
+                    this,
+                    "Erro ao carregar dados.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 }

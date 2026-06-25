@@ -11,12 +11,30 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.graphics.Bitmap
+import androidx.activity.result.contract.ActivityResultContracts
+import com.example.diario_inteligente.converter.Base64Converter
 
 class AddReminderActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddReminderBinding
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
+    private var imageBase64 = ""
+
+    private val cameraLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.TakePicturePreview()
+        ) { bitmap: Bitmap? ->
+
+            bitmap?.let {
+
+                binding.imgFotoLembrete.setImageBitmap(it)
+
+                imageBase64 =
+                    Base64Converter.bitmapToString(it)
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,13 +43,16 @@ class AddReminderActivity : AppCompatActivity() {
 
         Log.d("STUDENT_LOG", "Tela de adicionar lembrete aberta.")
 
+        binding.btnTirarFoto.setOnClickListener {
+            cameraLauncher.launch(null)
+        }
+
         binding.btnSalvarLembrete.setOnClickListener {
             val titulo = binding.edtTituloLembrete.text.toString().trim()
             val descricao = binding.edtDescricaoLembrete.text.toString().trim()
 
             if (titulo.isEmpty() || descricao.isEmpty()) {
                 Toast.makeText(this, "Por favor, preencha todos os campos!", Toast.LENGTH_SHORT).show()
-                Log.w("STUDENT_LOG", "Tentou salvar com campos vazios.")
                 return@setOnClickListener
             }
 
@@ -52,10 +73,11 @@ class AddReminderActivity : AppCompatActivity() {
             userId = userIdAtual,
             title = titulo,
             description = descricao,
-            imageBase64 = "", // TODO: Sprint 3 - Câmera vai injetar a foto aqui
+            imageBase64 = imageBase64,
             date = dataAtual,
             time = horaAtual
         )
+
 
         Log.d("STUDENT_LOG", "Enviando dados para a coleção 'reminders'...")
 

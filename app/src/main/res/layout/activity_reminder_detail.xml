@@ -6,6 +6,7 @@
     android:padding="20dp"
     android:background="#FAFAFA">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,6 +15,14 @@
         android:textStyle="bold"
         android:textColor="#333333"
         android:layout_marginBottom="24dp" />
+
+    <ImageView
+        android:id="@+id/imgDetalheFoto"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"

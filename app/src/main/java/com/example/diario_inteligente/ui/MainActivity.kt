@@ -39,6 +39,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+
+        binding.fabConfiguracoes.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    SettingsActivity::class.java
+                )
+            )
+        }
     }
 
     override fun onStart() {

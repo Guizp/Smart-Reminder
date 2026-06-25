@@ -3,6 +3,7 @@ package com.example.diario_inteligente.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.diario_inteligente.converter.Base64Converter
 import com.example.diario_inteligente.databinding.ItemLembreteBinding
 import com.example.diario_inteligente.model.Reminder
 
@@ -31,10 +32,20 @@ class LembreteAdapter(
 
     inner class LembreteViewHolder(private val binding: ItemLembreteBinding) : RecyclerView.ViewHolder(binding.root) {
         fun vincular(lembrete: Reminder) {
+
             binding.txtTituloItem.text = lembrete.title
             binding.txtDescricaoItem.text = lembrete.description
+            binding.txtDataHoraItem.text =
+                "${lembrete.date} às ${lembrete.time}"
 
-            binding.txtDataHoraItem.text = "${lembrete.date} às ${lembrete.time}"
+            if (lembrete.imageBase64.isNotEmpty()) {
+
+                binding.imgReminder.setImageBitmap(
+                    Base64Converter.stringToBitmap(
+                        lembrete.imageBase64
+                    )
+                )
+            }
 
             binding.root.setOnClickListener {
                 onCliqueLembrete(lembrete)

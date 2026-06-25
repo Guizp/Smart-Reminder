@@ -14,6 +14,12 @@
         android:orientation="vertical"
         android:padding="12dp">
 
+        <ImageView
+            android:id="@+id/imgReminder"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"/>
+
         <TextView
             android:id="@+id/txtTituloItem"
             android:layout_width="wrap_content"
@@ -31,6 +37,8 @@
             android:textColor="#666666"
             android:textSize="14sp"
             android:layout_marginTop="4dp" />
+
+
 
         <TextView
             android:id="@+id/txtDataHoraItem"

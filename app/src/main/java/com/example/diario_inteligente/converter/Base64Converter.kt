@@ -29,6 +29,24 @@ object Base64Converter {
         )
     }
 
+    fun bitmapToString(bitmap: Bitmap): String {
+
+        val outputStream = ByteArrayOutputStream()
+
+        bitmap.compress(
+            Bitmap.CompressFormat.JPEG,
+            70,
+            outputStream
+        )
+
+        val byteArray = outputStream.toByteArray()
+
+        return Base64.encodeToString(
+            byteArray,
+            Base64.DEFAULT
+        )
+    }
+
     fun stringToBitmap(imageString: String): Bitmap {
 
         val decodedBytes = Base64.decode(

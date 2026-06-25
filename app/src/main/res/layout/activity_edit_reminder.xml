@@ -15,6 +15,21 @@
         android:textColor="#333333"
         android:layout_marginBottom="24dp" />
 
+    <ImageView
+        android:id="@+id/imgEditarFoto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnAlterarFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alterar Foto"
+        android:layout_marginBottom="16dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
