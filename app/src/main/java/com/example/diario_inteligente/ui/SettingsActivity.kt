@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.widget.doAfterTextChanged
 import com.example.diario_inteligente.auth.AuthManager
 import com.example.diario_inteligente.databinding.ActivitySettingsBinding
@@ -27,11 +28,14 @@ class SettingsActivity : AppCompatActivity() {
 
         carregarConfiguracoes()
 
-
         binding.switchTema.setOnCheckedChangeListener { _, isChecked ->
             preferences.edit()
                 .putBoolean("tema_automatico", isChecked)
                 .apply()
+
+            if (!isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
 
             Toast.makeText(
                 this,
@@ -114,7 +118,6 @@ class SettingsActivity : AppCompatActivity() {
                 true
             )
 
-        // RECUPERA O TIMER SALVO (Padrão: 5 minutos antes se não existir nada salvo)
         val timerSalvo = preferences.getInt("timer_minimo_lembrete", 5)
         binding.edtTimerMinimo.setText(timerSalvo.toString())
     }

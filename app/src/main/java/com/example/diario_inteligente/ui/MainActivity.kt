@@ -1,15 +1,19 @@
 package com.example.diario_inteligente.ui
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diario_inteligente.databinding.ActivityMainBinding
 import com.example.diario_inteligente.helper.NotificationHelper
 import com.example.diario_inteligente.model.Reminder
+import com.example.diario_inteligente.sensor.LightSensorManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -20,12 +24,20 @@ class MainActivity : AppCompatActivity() {
     private val auth = FirebaseAuth.getInstance()
     private lateinit var lembreteAdapter: LembreteAdapter
 
+    // Classes do Sensor e Configurações
+    private lateinit var lightSensorManager: LightSensorManager
+    private lateinit var preferences: SharedPreferences
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         Log.d("MAIN_HOME", "MainActivity (Home) criada com sucesso.")
+
+        lightSensorManager = LightSensorManager(this)
+        preferences = getSharedPreferences("app_settings", Context.MODE_PRIVATE);
 
         configurarRecyclerView()
 
@@ -56,8 +68,36 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        val usarTemaAutomatico = preferences.getBoolean("tema_automatico", true);
+
+        if (usarTemaAutomatico) {
+            lightSensorManager.startListening { escuro ->
+                val modoAlvo = if (escuro) {
+                    AppCompatDelegate.MODE_NIGHT_YES
+                } else {
+                    AppCompatDelegate.MODE_NIGHT_NO
+                }
+
+                // PROTEÇÃO: Só altera o tema e recria a tela se o modo atual for diferente do alvo
+                if (AppCompatDelegate.getDefaultNightMode() != modoAlvo) {
+                    AppCompatDelegate.setDefaultNightMode(modoAlvo)
+                }
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        lightSensorManager.stopListening()
+    }
+
     override fun onStart() {
         super.onStart()
+
+        val usarTemaAutomatico = preferences.getBoolean("tema_automatico", true);
         carregarLembretesDoFirestore()
     }
 
