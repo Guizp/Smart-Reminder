@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center_vertical"
-    android:background="#FAFAFA">
+    android:background="?attr/android:windowBackground">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +13,7 @@
         android:text="@string/title_register"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="#333333"
+        android:textColor="?attr/colorOnBackground"
         android:layout_marginBottom="24dp"
         android:layout_gravity="center_horizontal" />
 
@@ -24,8 +24,10 @@
         android:hint="@string/hint_name_register"
         android:inputType="textPersonName"
         android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:layout_marginBottom="16dp" />
+        android:textColor="?attr/colorOnBackground"
+        android:textColorHint="?attr/colorOnBackground"
+        android:layout_marginBottom="16dp"
+        />
 
     <EditText
         android:id="@+id/edtEmailCadastro"
@@ -34,7 +36,8 @@
         android:hint="@string/hint_email_register"
         android:inputType="textEmailAddress"
         android:padding="12dp"
-        android:background="@android:drawable/edit_text"
+        android:textColor="?attr/colorOnBackground"
+        android:textColorHint="?attr/colorOnBackground"
         android:layout_marginBottom="16dp" />
 
     <EditText
@@ -44,7 +47,8 @@
         android:hint="@string/hint_password_register"
         android:inputType="textPassword"
         android:padding="12dp"
-        android:background="@android:drawable/edit_text"
+        android:textColor="?attr/colorOnBackground"
+        android:textColorHint="?attr/colorOnBackground"
         android:layout_marginBottom="24dp" />
 
     <Button
@@ -52,8 +56,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_register"
-        android:backgroundTint="#4CAF50"
-        android:textColor="#FFFFFF"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="16sp" />
 
     <Button

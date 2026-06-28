@@ -1,8 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.DiarioInteligente" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Cores do modo escuro -->
-        <item name="colorPrimary">@color/scarlet</item>
-        <item name="android:windowBackground">@color/darkGrey</item>
+        <item name="colorPrimary">@color/night_primary</item>
+        <item name="colorSecondary">@color/night_secondary</item>
+
+        <item name="android:windowBackground">@color/night_background</item>
+        <item name="colorSurface">@color/night_surface</item>
+
+        <item name="colorOnBackground">@color/night_text</item>
+        <item name="colorOnSurface">@color/night_text</item>
     </style>
 </resources>

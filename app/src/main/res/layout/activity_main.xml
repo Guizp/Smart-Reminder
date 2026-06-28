@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA">
+    android:background="?attr/android:windowBackground">
 
     <LinearLayout
         android:id="@+id/layoutHeader"
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="#2196F3">
+        android:background="?attr/colorPrimary">
 
         <TextView
             android:layout_width="0dp"
@@ -27,8 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btn_sair"
-            android:backgroundTint="#F44336"
-            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/alerta_deletar"
+            android:textColor="@color/alerta_deletar_profundo"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -46,7 +46,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="24dp"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="?attr/colorPrimary"
         android:contentDescription="@string/desc_novo_lembrete"
         app:srcCompat="@android:drawable/ic_input_add"
         app:tint="#FFFFFF" />

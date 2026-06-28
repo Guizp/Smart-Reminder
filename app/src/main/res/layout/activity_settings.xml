@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/android:windowBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,31 +16,34 @@
             android:text="Settings"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:textColor="#333333"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginBottom="24dp"/>
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchTema"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dark Mode"
             android:textSize="18sp"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginBottom="16dp"/>
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchNotificacoes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Enable Notifications"
             android:textSize="18sp"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginBottom="16dp"/>
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchProximidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Proximity Sensor"
             android:textSize="18sp"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginBottom="32dp"/>
 
         <TextView
@@ -47,8 +51,9 @@
             android:layout_height="wrap_content"
             android:text="Timer mínimo de Lembrete (minutos antes)"
             android:textSize="14sp"
-            android:textColor="#666666"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginBottom="4dp"/>
+
         <EditText
             android:id="@+id/edtTimerMinimo"
             android:layout_width="match_parent"
@@ -56,7 +61,8 @@
             android:hint="Ex: 5"
             android:inputType="number"
             android:padding="12dp"
-            android:background="@android:drawable/edit_text"
+            android:textColor="?attr/colorOnBackground"
+            android:textColorHint="?attr/colorOnBackground"
             android:layout_marginBottom="32dp"/>
 
         <Button
@@ -64,8 +70,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Logout"
-            android:backgroundTint="#F44336"
-            android:textColor="#FFFFFF"/>
+            android:backgroundTint="@color/alerta_deletar"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btnVoltar"
@@ -75,7 +81,6 @@
             android:text="Voltar"
             android:backgroundTint="#E0E0E0"
             android:textColor="#333333"/>
-
     </LinearLayout>
 
 </ScrollView>

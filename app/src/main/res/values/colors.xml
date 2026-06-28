@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray_text_muted">#757575</color>
 
-    <!-- claro -->
-    <color name="turquoise">#0A61CB</color>
-    <color name="darkBlue">#08326A</color>
-    <color name="lightGrey">#EFF7F9</color>
 
-    <!-- escuro -->
-    <color name="scarlet">#F04445</color>
-    <color name="darkRed">#8C2F2F</color>
-    <color name="darkGrey">#161616</color>
+    <color name="day_primary">#0A61CB</color>
+    <color name="day_secondary">#08326A</color>
+    <color name="day_background">#EFF7F9</color>
+    <color name="day_surface">#FFFFFF</color>
+    <color name="day_text">#08326A</color>
 
+    <color name="night_primary">#4CC9F0</color>
+    <color name="night_secondary">#0A61CB</color>
+    <color name="night_background">#121212</color>
+    <color name="night_surface">#1E1E1E</color>
+    <color name="night_text">#EFF7F9</color>
+
+    <color name="alerta_deletar">#F04445</color>
+    <color name="alerta_deletar_profundo">#8C2F2F</color>
 </resources>

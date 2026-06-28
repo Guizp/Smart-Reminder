@@ -1,8 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.DiarioInteligente" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/turquoise</item>
-        <item name="android:windowBackground">@color/lightGrey</item>
+        <item name="colorPrimary">@color/day_primary</item>
+        <item name="colorSecondary">@color/day_secondary</item>
+
+        <item name="android:windowBackground">@color/day_background</item>
+        <item name="colorSurface">@color/day_surface</item>
+
+        <item name="colorOnBackground">@color/day_text</item>
+        <item name="colorOnSurface">@color/day_text</item>
     </style>
 
     <style name="Theme.DiarioInteligente" parent="Base.Theme.DiarioInteligente" />
